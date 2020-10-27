@@ -235,9 +235,7 @@ input[type="checkbox"] {
 }
 
 .modal-header {
-  max-height: 50%;
-  flex-direction: column;
-  display: flex;
+  height: 50%;
   text-align: center;
   flex-grow: 1;
   flex-shrink: 1;
@@ -268,6 +266,10 @@ input[type="checkbox"] {
   background: rgb(255, 242, 199);
   padding: 1em;
   height: 100%;
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,9 @@
 let activeHemisphere = "north";
 let monthTagLastClicked = false;
+
 document.addEventListener("DOMContentLoaded", function () {
+
+  //Hemisphere toggle
   document.querySelector("input").addEventListener("click", function (e) {
     let hemisphereText = document.querySelector(".hemisphere-text");
     if (e.target.checked) {
@@ -111,4 +114,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   renderCards(fish);
+
 });
