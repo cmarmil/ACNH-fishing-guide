@@ -14,8 +14,15 @@
     <div id="root">
       <div class="top-container">
         <div class="hemisphere-container">
-          <input type="checkbox" class="toggle" />
-          <p class="hemisphere-text">Northern Hemisphere</p>
+          <input
+            id="hemisphere-checkbox"
+            type="checkbox"
+            class="toggle"
+            aria-labelledby="hemisphere-text"
+          />
+          <label class="hemisphere-text" for="hemisphere-checkbox"
+            >Northern Hemisphere</label
+          >
         </div>
         <div class="tag-container">
           <button class="tag">Sea</button>
