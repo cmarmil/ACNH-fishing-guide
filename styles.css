@@ -17,12 +17,18 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 0.5em;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   background: white;
   border: 0;
+}
+
+.card button {
+    background: white;
+    padding: .5em;
+    border: 0;
+    cursor: pointer;
 }
 
 .card:hover {

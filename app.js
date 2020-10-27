@@ -50,14 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
     fishArr.forEach(function (fish) {
       let color = setPriceColor(fish.sell);
       cards.push(
-        `<button class="card">
+        `<div class="card">
+        <button>
           <img class="image-fish" src=${fish.iconImage}>
           <p class="card-text">${fish.name}</p>
           <div class="sell-info-container" style="background:${color}">
             <img class="sell-info-image" src="https://acnhcdn.com/latest/MenuIcon/MoneyBag069.png" alt="Image of a Bell Bag"/>
             <p class="sell-text">${fish.sell}</p>
           </div>
-        </button>`
+        </button>
+        </div>`
       );
     });
     cardContainer.insertAdjacentHTML("afterBegin", cards.join(""));
