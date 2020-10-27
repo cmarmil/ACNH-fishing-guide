@@ -1,0 +1,97 @@
+body {
+  font-family: sans-serif;
+  color: #2d3436;
+  background: #dfe6e9;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(6, 16%);
+  grid-auto-rows: max-content;
+}
+
+.card {
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0 0 1px rgba(10, 10, 10, 0.02);
+  margin: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em 0.5em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: white;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card-text {
+  flex: 1;
+  margin-top: 0.5em;
+  align-items: center;
+  font-size: larger;
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  text-transform: capitalize;
+}
+
+.image-fish {
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.sell-info {
+  display: flex;
+  align-items: center;
+}
+
+.sell-info-image {
+  height: 2em;
+  width: auto;
+}
+
+.tag {
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  background: #00cec9;
+  color: white;
+  cursor: pointer;
+}
+
+.tag:first-child {
+  background: #74b9ff;
+}
+
+.tag:nth-child(2) {
+  background: #0984e3;
+}
+
+.tag:nth-child(3) {
+    background: #00b894;
+}
+
+.tag:last-child {
+    background: #e84393;
+}
+
+.tag-container {
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(4, 25%);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
