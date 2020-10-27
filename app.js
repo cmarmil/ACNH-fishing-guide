@@ -1,21 +1,21 @@
+let activeHemisphere = "north";
+let monthTagLastClicked = false;
 document.addEventListener("DOMContentLoaded", function () {
-  let activeHemisphere = 'north';
-  let monthTagLastClicked = false;
-
-  document.querySelector('input').addEventListener('click', function(e){
-    let hemisphereText = document.querySelector('.hemisphere-text');
+  document.querySelector("input").addEventListener("click", function (e) {
+    let hemisphereText = document.querySelector(".hemisphere-text");
     if (e.target.checked) {
-      activeHemisphere = 'south';
-      hemisphereText.innerHTML = 'Southern Hemisphere'
+      activeHemisphere = "south";
+      hemisphereText.innerHTML = "Southern Hemisphere";
     } else {
-      activeHemisphere = 'north';
-      hemisphereText.innerHTML = 'Northern Hemisphere';
+      activeHemisphere = "north";
+      hemisphereText.innerHTML = "Northern Hemisphere";
     }
     //update available fish for this month on hemisphere change.
     if (monthTagLastClicked) {
       renderCards(filterByActiveMonth());
     }
-  })
+  });
+
   /* Sort the fish in descending order from 
   the highest sell value to the lowest. */
   function sortByPrice(a, b) {
@@ -50,22 +50,36 @@ document.addEventListener("DOMContentLoaded", function () {
     fishArr.forEach(function (fish) {
       let color = setPriceColor(fish.sell);
       cards.push(
-        `<div role="button" class="card">
+        `<button class="card">
           <img class="image-fish" src=${fish.iconImage}>
           <p class="card-text">${fish.name}</p>
           <div class="sell-info-container" style="background:${color}">
             <img class="sell-info-image" src="https://acnhcdn.com/latest/MenuIcon/MoneyBag069.png" alt="Image of a Bell Bag"/>
             <p class="sell-text">${fish.sell}</p>
           </div>
-        </div>`
+        </button>`
       );
     });
     cardContainer.insertAdjacentHTML("afterBegin", cards.join(""));
+    let cardNodes = document.querySelectorAll(".card");
+    cardNodes.forEach(function (el) {
+      el.addEventListener("click", showCardModal);
+    });
   }
 
   function filterByLocation(location) {
     return fish.filter(function (fish) {
       return fish.whereHow === location;
+    });
+  }
+
+  function filterByActiveMonth() {
+    let date = new Date();
+    let currentMonth = date.getMonth();
+    return fish.filter(function (fish) {
+      return fish.hemispheres[activeHemisphere].monthsArray.includes(
+        currentMonth
+      );
     });
   }
 
@@ -91,14 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
           monthTagLastClicked = true;
           break;
       }
-    });
-  }
-
-  function filterByActiveMonth() {
-    let date = new Date();
-    let currentMonth = date.getMonth();
-    return fish.filter(function (fish) {
-      return fish.hemispheres[activeHemisphere].monthsArray.includes(currentMonth);
     });
   }
 
