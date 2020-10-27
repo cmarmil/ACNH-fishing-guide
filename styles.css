@@ -1,5 +1,6 @@
+/* General */
 body {
-    font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #2d3436;
   background: #dfe6e9;
 }
@@ -25,10 +26,10 @@ body {
 }
 
 .card button {
-    background: white;
-    padding: .5em;
-    border: 0;
-    cursor: pointer;
+  background: white;
+  padding: 0.5em;
+  border: 0;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -47,18 +48,28 @@ body {
 }
 
 .flex-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .flex-container svg {
-    margin-right: .5em;
+  margin-right: 0.5em;
+}
+
+.hemisphere-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
 }
 
 .image-fish {
   width: 70%;
   height: auto;
   margin: 0 auto;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .tag {
@@ -90,12 +101,6 @@ body {
   text-align: center;
 }
 
-.hemisphere-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1em;
-}
-
 .sell-info-container {
   display: flex;
   align-items: center;
@@ -110,6 +115,8 @@ body {
   height: 2em;
   width: auto;
 }
+
+/* Hemisphere Toggle */
 
 input[type="checkbox"] {
   -webkit-appearance: none;
@@ -151,18 +158,6 @@ input[type="checkbox"] {
 
 .toggle:checked:after {
   transform: translatex(20px);
-}
-
-@media (max-width: 1024px) {
-  .card-container {
-    grid-template-columns: repeat(4, 25%);
-  }
-}
-
-@media (max-width: 768px) {
-  .card-container {
-    grid-template-columns: repeat(2, 50%);
-  }
 }
 
 /* modal */
@@ -268,45 +263,62 @@ input[type="checkbox"] {
   height: 100%;
 }
 
-.no-scroll {
-    overflow: hidden;
+/* Modal Border Decoration */
+.wave-top {
+  position: relative;
+  margin-top: 20px;
 }
 
+.wave-top::before,
+.wave-top::after {
+  border-bottom: 5px solid rgb(255, 242, 199);
+}
+
+.wave-top::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  background-size: 20px 40px;
+  background-image: radial-gradient(
+    circle at 10px -15px,
+    transparent 20px,
+    rgb(255, 242, 199) 21px
+  );
+}
+
+.wave-top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 15px;
+  background-size: 40px 40px;
+  background-image: radial-gradient(
+    circle at 10px 26px,
+    rgb(255, 242, 199) 20px,
+    transparent 21px
+  );
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .modal .modal_content {
     width: 100vw;
   }
 }
 
-.wave-top {
-    position: relative;
-    margin-top: 20px;
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(4, 25%);
   }
-  
-  .wave-top::before,
-  .wave-top::after {
-    border-bottom: 5px solid rgb(255, 242, 199);
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 50%);
   }
-  
-  .wave-top::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 10px;
-    background-size: 20px 40px;
-    background-image: radial-gradient(circle at 10px -15px, transparent 20px, rgb(255, 242, 199) 21px);
-  }
-  
-  .wave-top::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 15px;
-    background-size: 40px 40px;
-    background-image: radial-gradient(circle at 10px 26px, rgb(255, 242, 199) 20px, transparent 21px);
-  }
-  
+}
